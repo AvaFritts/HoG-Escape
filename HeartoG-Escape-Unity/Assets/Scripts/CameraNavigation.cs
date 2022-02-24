@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraNavigation : MonoBehaviour
 {
     /**VARIABLES**/
     [Header("Set in Inspector")]
-    int rotat = 0; //current rotation of the system
+    public float rotat = 0; //current rotation of the system
+    //Vector3 rot = new Vector3(0, 0, 0);
+    //GameObject myCam ;
 
 
     //The idea: Whenever one of the two buttons are pressed, the camera rotates to show another part of the room.
@@ -22,6 +25,10 @@ public class CameraNavigation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Vector3 rot = new Vector3(0, rotat, 0);
+        //Quaternion rotation = Quaternion.Euler(rot);
+
+        //myCam = 
         if (rotat < -270 || rotat > 270) //just so I don't have to worry about extreme values.
         {
             rotat = 0;
@@ -29,11 +36,23 @@ public class CameraNavigation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void OnLeftClick()
     {
-        
+        this.transform.Rotate(0, -90, 0);  
     }
 
-    //On a left button click, either activate the next camera in line or  
-    
+    public void OnRightClick()
+    {
+        this.transform.Rotate(0, 90, 0); //rotat + 90;
+    }
+
+    /**private void FixedUpdate()
+    {
+        if (rotat < -270 || rotat > 270) //just so I don't have to worry about extreme values.
+        {
+            rotat = 0;
+            this.transform.Rotate(0, rotat, 0);
+        }
+    }**/
+
 }
