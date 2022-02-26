@@ -9,7 +9,8 @@ public class CameraNavigation : MonoBehaviour
     [Header("Set in Inspector")]
     public float rotat = 0; //current rotation of the system
     //Vector3 rot = new Vector3(0, 0, 0);
-    //GameObject myCam ;
+    public GameObject myCam; //The event camera
+    public GameObject mainCam; //The Main Camera
 
 
     //The idea: Whenever one of the two buttons are pressed, the camera rotates to show another part of the room.
@@ -28,7 +29,7 @@ public class CameraNavigation : MonoBehaviour
         //Vector3 rot = new Vector3(0, rotat, 0);
         //Quaternion rotation = Quaternion.Euler(rot);
 
-        //myCam = 
+        myCam.SetActive(false);
         if (rotat < -270 || rotat > 270) //just so I don't have to worry about extreme values.
         {
             rotat = 0;
@@ -46,12 +47,19 @@ public class CameraNavigation : MonoBehaviour
         this.transform.Rotate(0, 90, 0); //rotat + 90;
     }
 
-    /**private void FixedUpdate()
+    public void OnDownClick()
+    {
+        myCam.SetActive(false);
+        mainCam.SetActive(true);//rotat + 90;
+    }
+
+   /** private void FixedUpdate()
     {
         if (rotat < -270 || rotat > 270) //just so I don't have to worry about extreme values.
         {
             rotat = 0;
-            this.transform.Rotate(0, rotat, 0);
+            //myCam.transform.position.x = eventPos.x;
+            myCam.transform.Rotate(0, rotat, 0);
         }
     }**/
 
