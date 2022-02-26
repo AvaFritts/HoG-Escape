@@ -1,3 +1,13 @@
+/**** 
+ * Created by: Ava Fritts
+ * Date Created: Feb 18, 2022
+ * 
+ * Last Edited by: NA
+ * Last Edited: Feb 26, 2022
+ * 
+ * Description: The system that controlls the two room cameras
+****/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
