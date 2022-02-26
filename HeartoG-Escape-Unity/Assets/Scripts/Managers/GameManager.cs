@@ -2,8 +2,8 @@
  * Created by: Akram Taghavi-Burrs
  * Date Created: Feb 23, 2022
  * 
- * Last Edited by: NA
- * Last Edited: Feb 23, 2022
+ * Last Edited by: Ava Fritts
+ * Last Edited: Feb 26, 2022
  * 
  * Description: Basic GameManager Template
 ****/
@@ -107,8 +107,8 @@ public class GameManager : MonoBehaviour
     private bool gameStarted = false; //test if games has started
 
     //Win/Loose conditon
-    [SerializeField] //to test in inspector
-    private bool playerWon = false;
+    //[SerializeField] //to test in inspector
+    public bool playerWon = false; //changed from private to public in hopes of making the game winable.
  
    //reference to system time
    private static string thisDay = System.DateTime.Now.ToString("yyyy"); //today's date as string
