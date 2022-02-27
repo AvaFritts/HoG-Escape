@@ -6,6 +6,8 @@ public class Door : MonoBehaviour
 {
     [Header("set in Inspector?")]
     public bool unlocked;
+    [Tooltip("Will opening this door reach an ending?")]
+    public bool endDoor;
 
 
     // Start is called before the first frame update
@@ -24,20 +26,22 @@ public class Door : MonoBehaviour
          
         if (unlocked == true)
         {
-            this.transform.Rotate(0, 45, 0);//Instead, I should put a force onto this item to slowly open it.
-            if (this.tag.Equals("C"))
-            {
-                GameManager.GM.playerWon = true;
-   
-            }
+            this.transform.Rotate(0, 45, 0);//Instead, I should put a force onto this item to slowly open it. 
             //GameManager.GM.GameOver();
+            if(endDoor == true) {
             Invoke("GameEnd", 3);
-           
+            }
+
         }
     }
 
     void GameEnd()
     {
+        if (this.tag.Equals("C"))
+        {
+            GameManager.GM.playerWon = true;
+
+        }
         GameManager.GM.nextLevel = true;
     }
 }
