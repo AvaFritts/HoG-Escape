@@ -2,8 +2,7 @@
  * Created by: Ava Fritts
  * Date Created: Feb 26, 2022
  * 
- * Last Edited by: NA
- * Last Edited: Feb 26, 2022
+ * Last Edited: March 2, 2022
  * 
  * Description: Script for the inventory system.
 ****/
@@ -16,37 +15,31 @@ public class InventoryCanvas : MonoBehaviour
 {
     /** Variables**/
     [Header("Edit in Here")]
-    public string idTag;
+    public int idTag;
     //public GameObject ivButton;
 
     [Header("Edit dynamically")]
-    public GameObject[] numItems;
-    
-    // Start is called before the first frame update
-    void Start()
+    public GameObject[] numItemsArray; //The array of inventory Buttons
+    public int numItemsIDList;
+
+    private void Awake()
     {
-        numItems = GameObject.FindGameObjectsWithTag(idTag);
-       // foreach (GameObject consume in numItems){
-         //   Instantiate<GameObject>(ivButton);
-        //}
+        //deactivate every single inventory button
+        foreach (GameObject ivButton in numItemsArray)
+        {
+            numItemsIDList++;
+            ivButton.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddToInventory(int testValue)
     {
-        
-    }
-
-    public void AddToInventory(GameObject itemHere)
-    {
-        //checks each button in order. If the button is full, it skips it. if the button is NOT null, it gives the item's 
-        //value to the button and stops the search. it will then swap the button's sprite for 
-
-        //The exception is for the Poem pieces.
-    }
-
-    public void RemoveItem()
-    {
-       
+        for (int i = 0; i < numItemsIDList; i++)
+        {
+            if (testValue == i) //if the array finds the correct number
+            {
+                numItemsArray[i].SetActive(true);//activate the button I need
+            }
+        }
     }
 }
