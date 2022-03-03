@@ -16,6 +16,7 @@ public class InventoryCanvas : MonoBehaviour
     /** Variables**/
     [Header("Edit in Here")]
     public int idTag;
+    public string currentItem;
     //public GameObject ivButton;
 
     [Header("Edit dynamically")]
@@ -29,6 +30,18 @@ public class InventoryCanvas : MonoBehaviour
         {
             numItemsIDList++;
             ivButton.SetActive(false);
+        }
+    }
+
+    public void RemoveItem(int currItem)
+    {
+        for (int i = 0; i < numItemsIDList; i++)
+        {
+            if (currItem == i) //if the array finds the correct number
+            {
+                numItemsArray[i].SetActive(false);//deactivate the button I need
+                return;
+            }
         }
     }
 

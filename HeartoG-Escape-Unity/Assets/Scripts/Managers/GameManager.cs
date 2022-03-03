@@ -3,7 +3,7 @@
  * Date Created: Feb 23, 2022
  * 
  * Last Edited by: Ava Fritts
- * Last Edited: Feb 26, 2022
+ * Last Edited: March 2nd, 2022
  * 
  * Description: Basic GameManager Template
 ****/
@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public string endMsg ;//the end screen message, depends on winning outcome
 
     [Header("SCENE SETTINGS")]
+
     [Tooltip("Name of the start scene")]
     public string startScene;
     
@@ -97,6 +98,7 @@ public class GameManager : MonoBehaviour
 
     [Header("FOR TESTING")]
     public bool nextLevel = false; //test for next level
+    public string currentPath; //Is the person going to be on the Fear or Courage route?
 
     //Game State Varaiables
     [HideInInspector] public enum gameStates { Idle, Playing, Death, GameOver, BeatLevel };//enum of game states
@@ -184,7 +186,11 @@ public class GameManager : MonoBehaviour
         playerWon = false; //set player winning condition to false
     }//end StartGame()
 
-
+    //Change the path to Courage
+    public void SetPathC()
+    {
+        currentPath = "C";
+    }
 
     //EXIT THE GAME
     public void ExitGame()

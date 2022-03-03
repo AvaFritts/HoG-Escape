@@ -1,3 +1,11 @@
+/**** 
+ * Created by: Ava Fritts
+ * Date Created: Feb 26, 2022
+ * 
+ * Last Edited: March 2, 2022
+ * 
+ * Description: This script manages the doors, which are the win/loose conditions of the game.
+****/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +13,10 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [Header("set in Inspector?")]
-    public bool unlocked;
+    public bool isUnlocked;
+    public InventoryCanvas currentItemGetter;
+    public int keyIDNum; //number of the inventory item required to unlock it.
+    public string reqKey; //the name of the item needed to unlock this door, if needed to be unlocked.
     [Tooltip("Will opening this door reach an ending?")]
     public bool endDoor;
 
@@ -13,7 +24,7 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GameObject helpMe = GameObject.Find("_GameManager");
+        currentItemGetter = GameObject.FindObjectOfType<InventoryCanvas>();
     }
 
     public void OnMouseEnter()
@@ -24,7 +35,11 @@ public class Door : MonoBehaviour
         void OnMouseDown()
     {
          
-        if (unlocked == true)
+        if (isUnlocked != true)
+        {
+            Unlock();
+        }
+            else
         {
             this.transform.Rotate(0, 45, 0);//Instead, I should put a force onto this item to slowly open it. 
             //GameManager.GM.GameOver();
@@ -35,11 +50,22 @@ public class Door : MonoBehaviour
         }
     }
 
+    public void Unlock()
+    {
+        if (currentItemGetter.tag == reqKey)
+        {
+            isUnlocked = true;
+            currentItemGetter.RemoveItem(keyIDNum);
+        }
+
+    }
+
     void GameEnd()
     {
         if (this.tag.Equals("C"))
         {
             GameManager.GM.playerWon = true;
+            GameManager.GM.SetPathC();//this affects the 
 
         }
         GameManager.GM.nextLevel = true;
