@@ -180,9 +180,11 @@ MonoBehaviour:
   startScene: start_scene
   gameOverScene: EndScene
   gameLevels:
+  - Tutorial
   - UI-Test-Scene
   gameLevelsCount: 0
   nextLevel: 0
+  currentPath: 
   gameState: 0
   playerWon: 0
 --- !u!1 &660969369

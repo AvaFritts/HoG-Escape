@@ -2,7 +2,7 @@
  * Created by: Ava Fritts
  * Date Created: Feb 26, 2022
  * 
- * Last Edited: March 2, 2022
+ * Last Edited: March 3, 2022
  * 
  * Description: This script manages the doors, which are the win/loose conditions of the game.
 ****/
@@ -44,7 +44,7 @@ public class Door : MonoBehaviour
             this.transform.Rotate(0, 45, 0);//Instead, I should put a force onto this item to slowly open it. 
             //GameManager.GM.GameOver();
             if(endDoor == true) {
-            Invoke("GameEnd", 3);
+            Invoke("GameEnd", 2);
             }
 
         }

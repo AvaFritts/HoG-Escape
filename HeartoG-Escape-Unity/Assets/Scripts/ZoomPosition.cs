@@ -13,9 +13,9 @@ using UnityEngine;
 
 public class ZoomPosition : MonoBehaviour
 {
-    //[Header("Set in Inspector?")]
+    [Header("Set in Inspector?")]
     //public GameObject theObject;
-    //public float fOV;
+    public float fOV; //target field of View.
    
     /**Variables**/
     [Header("Set dynamically")]
@@ -55,6 +55,7 @@ public class ZoomPosition : MonoBehaviour
             print(theObject.transform.position);
             //CameraNavigation.eFOV = fOV;
             CameraNavigation.POI = theObject;
+        Camera.main.fieldOfView = fOV;
 
         //}
     }
