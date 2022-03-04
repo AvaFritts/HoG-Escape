@@ -3,7 +3,7 @@
  * Date Created: Feb 18, 2022
  * 
  * Last Edited by: NA
- * Last Edited: March 3, 2022
+ * Last Edited: March 4, 2022
  * 
  * Description: The system that controlls the room camera.
 ****/
@@ -78,7 +78,7 @@ public class CameraNavigation : MonoBehaviour
 
     public void OnRightClick()
     {
-        this.transform.Rotate(0, 90, 0); //rotat + 90;
+        this.transform.Rotate(0, 90, 0); //rotate + 90;
         if (i - 1 <= 0) { i = 4; } //prevents case from going out of bounds
         else { i -= 1; }
         DisableWall();
@@ -87,12 +87,16 @@ public class CameraNavigation : MonoBehaviour
     public void OnDownClick()
     {
         //Go back to previous main view.
+        POI.SetActive(true); //reactivates the trigger
         POI = null; //If this line isn't here, the camera will keep swapping back to the last zoom.
                     //mainCam.SetActive(true);
                     //myCam.SetActive(false);
+
+        //resets the camera's position, rotation, and FOV.
         Camera.main.transform.position = home.transform.position;
         Camera.main.transform.rotation = home.transform.rotation;
         Camera.main.fieldOfView = 27;
+
         //Change the UI accordingly
         rightButton.SetActive(true);
         leftButton.SetActive(true);

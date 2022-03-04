@@ -181,7 +181,7 @@ MonoBehaviour:
   gameOverScene: EndScene
   gameLevels:
   - Tutorial
-  - UI-Test-Scene
+  - Level_1
   gameLevelsCount: 0
   nextLevel: 0
   currentPath: 

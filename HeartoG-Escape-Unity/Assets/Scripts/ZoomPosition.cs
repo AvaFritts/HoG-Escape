@@ -3,7 +3,7 @@
  * Date Created: Feb 28, 2022
  * 
  * Last Edited by: NA
- * Last Edited: Feb 28, 2022
+ * Last Edited: March 4, 2022
  * 
  * Description: The script for each zoom in... Probably never needed this to begin with.
 ****/
@@ -52,10 +52,16 @@ public class ZoomPosition : MonoBehaviour
     {
         //if (canGet == true)
         //{
+        if (CameraNavigation.POI != null) //if the player is not at the "home" position
+        {
+            CameraNavigation.POI.SetActive(true); //make the place they left active
+        }
             print(theObject.transform.position);
-            //CameraNavigation.eFOV = fOV;
+        //CameraNavigation.eFOV = fOV;
             CameraNavigation.POI = theObject;
         Camera.main.fieldOfView = fOV;
+        theObject.SetActive(false); //This allows the triggers to be put closer to the interactable objects, 
+        //so the player can still click a drawer and interact with it without the trigger being in the way.
 
         //}
     }

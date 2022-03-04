@@ -498,7 +498,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1591831436}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 451614956}
+        m_TargetAssemblyTypeName: EndCanvas, Assembly-CSharp
+        m_MethodName: GameRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1591831436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,18 +756,21 @@ MonoBehaviour:
   recordHighScore: 0
   defaultHighScore: 1000
   numberOfLives: 0
-  levelLost: 1
+  levelLost: 0
   defaultEndMessage: 'Ending:'
-  looseMessage: You Loose
-  winMessage: Courage
+  looseMessage: 'Ending: Fear'
+  winMessage: 'Ending: Courage'
   endMsg: 
-  startScene: 
+  startScene: start_scene
   gameOverScene: EndScene
-  gameLevels: []
+  gameLevels:
+  - Tutorial
+  - Level_1
   gameLevelsCount: 0
   nextLevel: 0
+  currentPath: 
   gameState: 0
-  playerWon: 1
+  playerWon: 0
 --- !u!4 &1871313171
 Transform:
   m_ObjectHideFlags: 0

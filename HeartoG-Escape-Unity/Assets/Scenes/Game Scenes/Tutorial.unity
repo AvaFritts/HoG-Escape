@@ -4071,9 +4071,11 @@ MonoBehaviour:
   looseMessage: 'Ending: Fear'
   winMessage: 'Ending: Courage'
   endMsg: 
-  startScene: 
+  startScene: start_scene
   gameOverScene: EndScene
-  gameLevels: []
+  gameLevels:
+  - Tutorial
+  - Level_1
   gameLevelsCount: 0
   nextLevel: 0
   currentPath: 
