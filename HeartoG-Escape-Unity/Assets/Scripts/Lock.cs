@@ -17,6 +17,7 @@ public class Lock : MonoBehaviour
     public GameObject physicalLock; //If there is a physical lock showing the player that this item is locked.
     [Space(10)]
     public InventoryCanvas currentItemGetter; //only used if it needs an item.
+    [Tooltip("This shows the inventory button and ID to remove if an item is needed")]
     public int keyIDNum; //number of the inventory item required to unlock it.
     public string reqKey; //the name of the item needed to unlock this door, if needed to be unlocked.
     // Start is called before the first frame update

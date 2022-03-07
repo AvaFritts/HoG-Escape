@@ -25,11 +25,7 @@ public class Drawer : Lock
     // Update is called once per frame
     void OnMouseDown()
     {
-        if (needsItem)
-        {
-            UnlockItem();
-        } 
-        else if (isUnlocked)
+        if (isUnlocked)
         {
             if (!open)
             {
@@ -42,6 +38,10 @@ public class Drawer : Lock
                 thisDrawer.transform.localPosition = new Vector3(thisDrawer.transform.localPosition.x + .25f, thisDrawer.transform.localPosition.y, thisDrawer.transform.localPosition.z);
                 open = false;
             }
+        }
+        else if (needsItem)
+        {
+            UnlockItem();
         }
     } //end OnMouseDown
 
