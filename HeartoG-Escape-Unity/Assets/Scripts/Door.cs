@@ -64,7 +64,7 @@ public class Door : Lock
         if (this.tag.Equals("C"))
         {
             GameManager.GM.playerWon = true;
-            GameManager.GM.SetPathC();//this affects the 
+            GameManager.GM.SetPathC();//this affects the end message. This is the courage Path.
 
         }
         GameManager.GM.nextLevel = true;

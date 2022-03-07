@@ -3,7 +3,7 @@
  * Date Created: Feb 23, 2022
  * 
  * Last Edited by: Ava Fritts
- * Last Edited: March 2nd, 2022
+ * Last Edited: March 7th, 2022
  * 
  * Description: Basic GameManager Template
 ****/
@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
     [Header("FOR TESTING")]
     public bool nextLevel = false; //test for next level
     public string currentPath; //Is the person going to be on the Fear or Courage route?
+    public bool UVLightsON = false; //are the UV lights active in this scene?
 
     //Game State Varaiables
     [HideInInspector] public enum gameStates { Idle, Playing, Death, GameOver, BeatLevel };//enum of game states
@@ -220,6 +221,7 @@ public class GameManager : MonoBehaviour
         //as long as our level count is not more than the amount of levels
         if (gameLevelsCount < gameLevels.Length)
         {
+            UVLightsON = false; //turns off UV Lights
             gameLevelsCount++; //add to level count for next level
             loadLevel = gameLevelsCount - 1; //find the next level in the array
             SceneManager.LoadScene(gameLevels[loadLevel]); //load next level

@@ -1,7 +1,7 @@
 /**** 
  * Created by: Ava Fritts
  * Date Created: March 6, 2022
- * Last Edited: March 6, 2022
+ * Last Edited: March 7, 2022
  * 
  * Description: The code that dictates all locked objects.
 ****/
@@ -27,18 +27,19 @@ public class Lock : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void UnlockItem()
+    public void UnlockItem() //Used only if an item is needed;
     {
         if(currentItemGetter.tag == reqKey)
         {
             isUnlocked = true;
-            physicalLock.SetActive(false);
+            //physicalLock.SetActive(false);
+            Destroy(physicalLock); //The physical lock is now gone;
             currentItemGetter.RemoveItem(keyIDNum);
         }
 
     }
 
-    public void Unlock()
+    public void Unlock() //standard puzzle unlock
     {  
         isUnlocked = true;
     }

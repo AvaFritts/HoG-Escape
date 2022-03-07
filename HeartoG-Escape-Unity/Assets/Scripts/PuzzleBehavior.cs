@@ -33,9 +33,9 @@ public class PuzzleBehavior : MonoBehaviour
     public void OnMouseDown()
     {
         print("Submitting thing");
-       foreach(GameObject hello in puzzleButtons)
+       foreach(GameObject targetButton in puzzleButtons)
         {
-            currentID += hello.GetComponent<PuzzleSprites>().currentValue.ToString();
+            currentID += targetButton.GetComponent<PuzzleSprites>().currentValue.ToString(); //making the 
         }
         print(currentID);
         if (currentID.Equals(targetSolution)){
