@@ -10,34 +10,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : Lock
 {
-    [Header("set in Inspector?")]
-    public bool isUnlocked;
-    public InventoryCanvas currentItemGetter;
-    public int keyIDNum; //number of the inventory item required to unlock it.
-    public string reqKey; //the name of the item needed to unlock this door, if needed to be unlocked.
     [Tooltip("Will opening this door reach an ending?")]
     public bool endDoor;
+
+    [Header("Set Dynamically")]
+    float yRotation;
 
 
     // Start is called before the first frame update
     void Start()
     {
         currentItemGetter = GameObject.FindObjectOfType<InventoryCanvas>();
+        yRotation = 1;
     }
 
     public void OnMouseEnter()
     {
         print("Mouse found Door");
     }
-        // Update is called once per frame
-        void OnMouseDown()
+
+    /**private void FixedUpdate()
+    {
+        if (isUnlocked && yRotation < 45)
+        {
+            yRotation = yRotation*Time.deltaTime;
+            this.transform.Rotate(0, yRotation, 0);
+        }
+    }**/
+
+    // Update is called once per frame
+    void OnMouseDown()
     {
          
         if (isUnlocked != true)
         {
-            Unlock();
+            if (needsItem) { UnlockItem(); }
         }
             else
         {
@@ -48,16 +57,6 @@ public class Door : MonoBehaviour
             }
 
         }
-    }
-
-    public void Unlock()
-    {
-        if (currentItemGetter.tag == reqKey)
-        {
-            isUnlocked = true;
-            currentItemGetter.RemoveItem(keyIDNum);
-        }
-
     }
 
     void GameEnd()

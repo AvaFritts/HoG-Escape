@@ -3,7 +3,7 @@
  * Date Created: March 3, 2022
  * 
  * Last Edited by: NA
- * Last Edited: March 3, 2022
+ * Last Edited: March 6, 2022
  * 
  * Description: The system that controls the main puzzle dynamics.
 ****/
@@ -13,9 +13,14 @@ using UnityEngine;
 
 public class PuzzleBehavior : MonoBehaviour
 {
-    public Door lockedObj;
-    public GameObject submitButton;
+    public GameObject lockedObj;
 
+    public GameObject submitButton;
+    public GameObject[] puzzleButtons;
+    //public Sprite[] buttonSprites1;
+    //public S
+
+    public string currentID;
     public string targetSolution; //the string
 
     // Start is called before the first frame update
@@ -25,10 +30,18 @@ public class PuzzleBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void onMouseDown()
+    public void OnMouseDown()
     {
-       //check to see if the code matches the win code.
-       //if()
-        lockedObj.Unlock();
+        print("Submitting thing");
+       foreach(GameObject hello in puzzleButtons)
+        {
+            currentID += hello.GetComponent<PuzzleSprites>().currentValue.ToString();
+        }
+        print(currentID);
+        if (currentID.Equals(targetSolution)){
+            //newLock = lockedObj.GetComponent<Lock>();
+                gameObject.transform.parent.transform.parent.GetComponent<Lock>().Unlock();
+        }
+        currentID = null;
     }
 }
