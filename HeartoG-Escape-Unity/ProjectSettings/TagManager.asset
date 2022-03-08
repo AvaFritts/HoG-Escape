@@ -15,6 +15,7 @@ TagManager:
   - Item 5
   - Item 6
   - NormalLight
+  - Item 7
   layers:
   - Default
   - TransparentFX

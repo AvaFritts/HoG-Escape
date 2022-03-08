@@ -3,7 +3,7 @@
  * Date Created: March 3, 2022
  * 
  * Last Edited by: NA
- * Last Edited: March 6, 2022
+ * Last Edited: March 7, 2022
  * 
  * Description: The system that controls the main puzzle dynamics.
 ****/
@@ -13,12 +13,14 @@ using UnityEngine;
 
 public class PuzzleBehavior : MonoBehaviour
 {
+
+    /**VARIABLES**/
     public GameObject lockedObj;
 
     public GameObject submitButton;
     public GameObject[] puzzleButtons;
-    //public Sprite[] buttonSprites1;
-    //public S
+
+    private Renderer mr; //for changing color;
 
     public string currentID;
     public string targetSolution; //the string
@@ -26,7 +28,7 @@ public class PuzzleBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        mr = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -39,8 +41,15 @@ public class PuzzleBehavior : MonoBehaviour
         }
         print(currentID);
         if (currentID.Equals(targetSolution)){
-            //newLock = lockedObj.GetComponent<Lock>();
+            if (gameObject.transform.parent.tag.Equals("C")) //if this is the door for the courage ending
+            {
+                lockedObj.GetComponent<Lock>().Unlock();
+            }
+            else
+            {
                 gameObject.transform.parent.transform.parent.GetComponent<Lock>().Unlock();
+                mr.material.color = new Color(0f, 1f, 0f, 1f);
+            }
         }
         currentID = null;
     }
