@@ -2,7 +2,7 @@
  * Created by: Ava Fritts
  * Date Created: Feb 26, 2022
  * 
- * Last Edited: March 2, 2022
+ * Last Edited: March 28, 2022
  * 
  * Description: Script for the inventory system.
 ****/
@@ -35,6 +35,8 @@ public class InventoryCanvas : MonoBehaviour
 
     public void RemoveItem(int currItem)
     {
+        transform.tag = "Untagged"; //prevents objects from being used multiple times
+
         for (int i = 0; i < numItemsIDList; i++)
         {
             if (currItem == i) //if the array finds the correct number
