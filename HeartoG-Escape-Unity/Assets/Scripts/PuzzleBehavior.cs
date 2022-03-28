@@ -1,7 +1,6 @@
 /**** 
  * Created by: Ava Fritts
  * Date Created: March 3, 2022
- * 
  * Last Edited: March 8, 2022
  * 
  * Description: The system that controls the main puzzle dynamics.

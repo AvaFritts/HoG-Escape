@@ -196,7 +196,7 @@ public class GameManager : MonoBehaviour
     //EXIT THE GAME
     public void ExitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene(startScene); //load the game over scene
         Debug.Log("Exited Game");
     }//end ExitGame()
 
