@@ -3,7 +3,7 @@
  * Date Created: Feb 23, 2022
  * 
  * Last Edited by: Ava Fritts
- * Last Edited: March 7th, 2022
+ * Last Edited: March 30th, 2022
  * 
  * Description: Basic GameManager Template
 ****/
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //if ESC is pressed , exit game
-        if (Input.GetKey("escape")) { ExitGame(); }
+        //if (Input.GetKey("escape")) { ExitGame(); }
         
         //Check for next level
         if (nextLevel) { NextLevel(); }

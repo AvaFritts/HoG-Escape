@@ -104,7 +104,7 @@ public class CameraNavigation : MonoBehaviour
 
     }
 
-    public void FixedUpdate()
+    public void LateUpdate()
     {
         if (POI == null) return;
         //Swap the camera to the zoom-in camera
