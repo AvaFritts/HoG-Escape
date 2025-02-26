@@ -15,15 +15,18 @@ public class Door : Lock
     [Tooltip("Will opening this door reach an ending?")]
     public bool endDoor;
 
-    [Header("Set Dynamically")]
-    float yRotation;
+    public Vector3 jointAxis;
+    public float yRotation;
+
+    //[Header("Set Dynamically")]
+    //float yRotation;
 
 
     // Start is called before the first frame update
     void Start()
     {
         currentItemGetter = GameObject.FindObjectOfType<InventoryCanvas>();
-        yRotation = 1;
+        //yRotation = 1;
     }
 
     public void OnMouseEnter()
@@ -50,9 +53,10 @@ public class Door : Lock
         }
             else
         {
-            this.transform.Rotate(0, 45, 0);//Instead, I should put a force onto this item to slowly open it. 
+            //this.transform.Rotate(0, 45, 0);//Instead, I should put a force onto this item to slowly open it.
+            this.transform.RotateAround(jointAxis, Vector3.up, yRotation);
             //GameManager.GM.GameOver();
-            if(endDoor == true) {
+            if (endDoor == true) {
             Invoke("GameEnd", 2);
             }
 

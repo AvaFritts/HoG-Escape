@@ -530,8 +530,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4629960832751690013, guid: b4f83325496e49a48a2fdc2766b74bb2, type: 3}
+      propertyPath: yRotation
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629960832751690013, guid: b4f83325496e49a48a2fdc2766b74bb2, type: 3}
       propertyPath: isUnlocked
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629960832751690013, guid: b4f83325496e49a48a2fdc2766b74bb2, type: 3}
+      propertyPath: jointAxis.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629960832751690013, guid: b4f83325496e49a48a2fdc2766b74bb2, type: 3}
+      propertyPath: jointAxis.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629960832751690013, guid: b4f83325496e49a48a2fdc2766b74bb2, type: 3}
+      propertyPath: jointAxis.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4629960832751690013, guid: b4f83325496e49a48a2fdc2766b74bb2, type: 3}
       propertyPath: physicalLock
